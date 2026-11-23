@@ -18,7 +18,7 @@ const categories = [
     name: "Cozy Living",
     subtitle: "Make every corner special",
     image:
-      "https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=1000",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1000",
     number: "03",
   },
 ];
@@ -226,22 +226,22 @@ export default function Home() {
             <a
               href="#discoveries"
               key={item.name}
-              className="group relative h-[430px] overflow-hidden rounded-[22px] bg-[#243b2d]"
+              className="group relative h-[400px] overflow-hidden rounded-[22px] bg-[#243b2d] sm:h-[430px]"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-110"
                 style={{ backgroundImage: `url('${item.image}')` }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#09170f]/90 via-transparent to-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#09170f]/95 via-[#09170f]/20 via-45% to-black/15" />
 
-              <div className="absolute left-5 top-5 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-[9px] tracking-widest text-white backdrop-blur-xl">
+              <div className="absolute left-4 top-4 rounded-full border border-white/40 bg-[#14271e]/45 px-4 py-2 text-[10px] tracking-[0.12em] text-white shadow-sm backdrop-blur-xl sm:left-5 sm:top-5">
                 COLLECTION {item.number}
               </div>
 
-              <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/25 bg-white/10 p-5 text-white backdrop-blur-xl transition group-hover:bg-white/20">
-                <p className="text-xs text-white/75">{item.subtitle}</p>
+              <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/30 bg-[#14271e]/55 p-5 text-white shadow-lg backdrop-blur-2xl transition group-hover:bg-[#14271e]/70 sm:bottom-5 sm:left-5 sm:right-5 sm:p-6">
+                <p className="text-[13px] leading-5 text-white/90">{item.subtitle}</p>
                 <div className="mt-2 flex items-center justify-between">
-                  <h3 className="font-serif text-2xl">{item.name}</h3>
+                  <h3 className="font-serif text-[25px] leading-tight sm:text-2xl">{item.name}</h3>
                   <ArrowIcon className="h-5 w-5" />
                 </div>
               </div>
@@ -313,20 +313,20 @@ export default function Home() {
         <div className="grid gap-8 md:grid-cols-3">
           {discoveries.map((item, index) => (
             <article key={item.title} className="group">
-              <div className="relative h-[360px] overflow-hidden rounded-[22px]">
+              <div className="relative h-[320px] overflow-hidden rounded-[22px] sm:h-[360px]">
                 <div
                   className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-110"
                   style={{ backgroundImage: `url('${item.image}')` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                <span className="absolute left-5 top-5 rounded-full border border-white/40 bg-white/15 px-4 py-2 text-[9px] tracking-widest text-white backdrop-blur-xl">
+                <span className="absolute left-4 top-4 rounded-full border border-white/50 bg-[#14271e]/45 px-4 py-2 text-[10px] tracking-[0.12em] text-white shadow-sm backdrop-blur-xl sm:left-5 sm:top-5">
                   {item.tag}
                 </span>
               </div>
               <p className="mt-6 text-[10px] tracking-[0.2em] text-[#a7864d]">
                 EDITION 0{index + 1}
               </p>
-              <h3 className="mt-3 font-serif text-2xl leading-snug">
+              <h3 className="mt-3 font-serif text-[25px] leading-snug sm:text-2xl">
                 {item.title}
               </h3>
               <a
