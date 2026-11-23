@@ -44,6 +44,23 @@ const discoveries = [
   },
 ];
 
+
+function ArrowIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
+      <path d="M5 15 15 5M6 5h9v9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function MenuIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-5 w-5">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#f7f3ea] text-[#17291f]">
@@ -65,7 +82,7 @@ export default function Home() {
             </span>
           </a>
 
-          <nav className="hidden items-center gap-9 text-[10px] tracking-[0.17em] md:flex">
+          <nav aria-label="Main navigation" className="hidden items-center gap-9 text-[10px] tracking-[0.17em] md:flex">
             <a href="#home" className="transition hover:text-[#b28b48]">HOME</a>
             <a href="#categories" className="transition hover:text-[#b28b48]">EXPLORE</a>
             <a href="#discoveries" className="transition hover:text-[#b28b48]">GIFT GUIDES</a>
@@ -74,10 +91,29 @@ export default function Home() {
 
           <a
             href="#categories"
-            className="rounded-full border border-[#b28b48]/60 px-5 py-3 text-[9px] tracking-[0.15em] transition hover:bg-[#b28b48] hover:text-white"
+            className="hidden items-center gap-2 rounded-full border border-[#b28b48]/60 px-5 py-3 text-[9px] tracking-[0.15em] transition hover:bg-[#b28b48] hover:text-white sm:inline-flex"
           >
-            DISCOVER <span className="ml-2">↗</span>
+            DISCOVER <ArrowIcon />
           </a>
+
+          <details className="group relative md:hidden">
+            <summary
+              aria-label="Open navigation menu"
+              className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-[#b28b48]/40 bg-white/40 text-[#244632] transition hover:bg-white/80 [&::-webkit-details-marker]:hidden"
+            >
+              <MenuIcon />
+            </summary>
+            <nav
+              aria-label="Mobile navigation"
+              className="absolute right-0 top-[calc(100%+14px)] z-50 flex w-56 flex-col gap-1 rounded-2xl border border-white/70 bg-[#f7f3ea]/95 p-3 text-[10px] tracking-[0.16em] text-[#17291f] shadow-xl shadow-black/10 backdrop-blur-2xl"
+            >
+              <a href="#home" className="rounded-xl px-4 py-3 transition hover:bg-white/70">HOME</a>
+              <a href="#categories" className="rounded-xl px-4 py-3 transition hover:bg-white/70">EXPLORE</a>
+              <a href="#discoveries" className="rounded-xl px-4 py-3 transition hover:bg-white/70">GIFT GUIDES</a>
+              <a href="#about" className="rounded-xl px-4 py-3 transition hover:bg-white/70">OUR STORY</a>
+              <a href="#categories" className="mt-1 flex items-center justify-between rounded-xl bg-[#14271e] px-4 py-3 text-[#e4c995]">DISCOVER <ArrowIcon /></a>
+            </nav>
+          </details>
         </div>
       </header>
 
@@ -124,7 +160,7 @@ export default function Home() {
                 href="#categories"
                 className="mt-8 inline-flex items-center justify-center gap-4 rounded-full bg-[#e4c995] px-6 py-4 text-[9px] tracking-[0.15em] text-[#14271e] transition hover:bg-white sm:px-7 sm:text-[10px]"
               >
-                EXPLORE OUR WORLD <span className="text-base">↗</span>
+                EXPLORE OUR WORLD <ArrowIcon className="h-4 w-4" />
               </a>
             </div>
 
@@ -181,7 +217,7 @@ export default function Home() {
             </h2>
           </div>
           <span className="hidden text-xs tracking-widest text-[#a7864d] sm:block">
-            THE SEASONAL EDIT ↗
+            THE SEASONAL EDIT
           </span>
         </div>
 
@@ -206,7 +242,7 @@ export default function Home() {
                 <p className="text-xs text-white/75">{item.subtitle}</p>
                 <div className="mt-2 flex items-center justify-between">
                   <h3 className="font-serif text-2xl">{item.name}</h3>
-                  <span className="text-2xl">↗</span>
+                  <ArrowIcon className="h-5 w-5" />
                 </div>
               </div>
             </a>
@@ -239,7 +275,7 @@ export default function Home() {
               href="#discoveries"
               className="mt-9 inline-flex items-center gap-4 rounded-full border border-white/30 bg-white/10 px-6 py-4 text-[10px] tracking-[0.16em] backdrop-blur-xl transition hover:bg-white/20"
             >
-              EXPLORE THE JOURNAL <span>↗</span>
+              EXPLORE THE JOURNAL <ArrowIcon />
             </a>
           </div>
 
@@ -297,7 +333,7 @@ export default function Home() {
                 href="#about"
                 className="mt-5 inline-flex items-center gap-3 border-b border-[#b28b48] pb-2 text-[10px] tracking-[0.16em]"
               >
-                READ THE STORY <span>↗</span>
+                READ THE STORY <ArrowIcon />
               </a>
             </article>
           ))}
@@ -323,7 +359,7 @@ export default function Home() {
               href="#home"
               className="mt-8 inline-block rounded-full border border-[#e4c995]/60 bg-white/10 px-8 py-4 text-[10px] tracking-[0.18em] backdrop-blur-xl transition hover:bg-[#e4c995] hover:text-[#14271e]"
             >
-              EXPLORE SEASONAL FINDS ↗
+              EXPLORE SEASONAL FINDS
             </a>
           </div>
         </div>
